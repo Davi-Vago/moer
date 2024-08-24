@@ -1,0 +1,977 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.132.1053.0 (24.08)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"dim_cafes\",\"dim_equipamentos\",\"dim_torrefacoes\",\"fato_extracoes\",\"dim_moedores\",\"dim_metodos\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "pt-BR",
+    "cultures": [
+      {
+        "name": "pt-BR",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "dim_equipamentos",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Fonte = Sql.Database(\"localhost\\SQLEXPRESS\", \"coffee\"),",
+          "    dbo_dim_equipamentos = Fonte{[Schema=\"dbo\",Item=\"dim_equipamentos\"]}[Data]",
+          "in",
+          "    dbo_dim_equipamentos"
+        ],
+        "kind": "m",
+        "lineageTag": "434faf21-9419-453b-83d8-08a0fcc7ec18",
+        "queryGroup": "stg"
+      }
+    ],
+    "queryGroups": [
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ],
+        "folder": "stg"
+      },
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "1"
+          }
+        ],
+        "folder": "dimensoes"
+      },
+      {
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "2"
+          }
+        ],
+        "folder": "fato"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "0d8e9ef2-a2b5-b5d7-d346-d702658f2c31",
+        "fromColumn": "id_torrefacao_fk",
+        "fromTable": "dim_cafes",
+        "toColumn": "id_torrefacao_pk",
+        "toTable": "dim_torrefacoes"
+      },
+      {
+        "name": "ea0fb745-35e8-5d55-6842-7540bcfcb443",
+        "fromColumn": "id_cafe_pk",
+        "fromTable": "dim_cafes",
+        "toColumn": "id_cafe_fk",
+        "toTable": "fato_extracoes"
+      },
+      {
+        "name": "185ac9dd-2f3f-5cdb-3791-73803c3dffa3",
+        "fromColumn": "id_metodo_fk",
+        "fromTable": "fato_extracoes",
+        "toColumn": "id_equipamento_pk",
+        "toTable": "dim_metodos"
+      },
+      {
+        "name": "e05f6181-79fe-2a5e-7bf8-db6de009cb71",
+        "fromColumn": "id_moedor_fk",
+        "fromTable": "fato_extracoes",
+        "toColumn": "id_equipamento_pk",
+        "toTable": "dim_moedores"
+      },
+      {
+        "name": "e2ccecf8-c22b-1f43-976d-79d390536638",
+        "fromColumn": "dt_dia_extracao",
+        "fromTable": "fato_extracoes",
+        "toColumn": "Date",
+        "toTable": "calendario"
+      }
+    ],
+    "sourceQueryCulture": "pt-BR",
+    "tables": [
+      {
+        "name": "dim_cafes",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          }
+        ],
+        "columns": [
+          {
+            "name": "id_cafe_pk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "fcccc339-d65c-4375-9fde-97dbaf159ad0",
+            "sourceColumn": "id_cafe_pk",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "id_torrefacao_fk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a91cf37d-8268-447c-ab72-e272ece8e101",
+            "sourceColumn": "id_torrefacao_fk",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "vl_altitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "65ad97f9-b4ee-4c77-965c-e0daddd0f91e",
+            "sourceColumn": "vl_altitude",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ds_tipo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7abf6385-3626-48c6-b28e-68644d250312",
+            "sourceColumn": "ds_tipo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_torra",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fefa700b-1cc1-4166-80dc-26a9af789bcc",
+            "sourceColumn": "ds_torra",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_metodo_processamento",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fad09e33-0a34-4682-8d52-1195fd0961b0",
+            "sourceColumn": "ds_metodo_processamento",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_variedade",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ef7e3aad-acb4-4514-a4e8-8aed304b2cce",
+            "sourceColumn": "ds_variedade",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_municipio",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "123292f4-9b39-48e7-a7cd-660357a4d346",
+            "sourceColumn": "ds_municipio",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_uf",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1eca91e1-e037-4aca-b0fa-df8b86f355cf",
+            "sourceColumn": "ds_uf",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dt_dia_compra",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "cfa37fc5-71c5-4585-b4d6-3355e45a7535",
+            "sourceColumn": "dt_dia_compra",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dt_dia_torra",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "37eb0553-fa5b-417d-8a46-11c5de8d5949",
+            "sourceColumn": "dt_dia_torra",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_nome_cafe",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c7d0269f-25b3-4c37-818c-a03ce408dac7",
+            "sourceColumn": "ds_nome_cafe",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "5c346dc4-5634-4468-be0e-d42df46eecc5",
+        "partitions": [
+          {
+            "name": "dim_cafes",
+            "mode": "import",
+            "queryGroup": "dimensoes",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Sql.Database(\"localhost\\SQLEXPRESS\", \"coffee\"),",
+                "    dbo_dim_cafes = Fonte{[Schema=\"dbo\",Item=\"dim_cafes\"]}[Data]",
+                "in",
+                "    dbo_dim_cafes"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_torrefacoes",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          }
+        ],
+        "columns": [
+          {
+            "name": "id_torrefacao_pk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a608a3ac-66b2-496f-8781-89acc2bf0872",
+            "sourceColumn": "id_torrefacao_pk",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_nome_torrefacao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "22178298-45de-4c26-974b-291b97e30694",
+            "sourceColumn": "ds_nome_torrefacao",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "af4d5b70-09de-4f76-ae3e-2080b2eec633",
+        "partitions": [
+          {
+            "name": "dim_torrefacoes",
+            "mode": "import",
+            "queryGroup": "dimensoes",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Sql.Database(\"localhost\\SQLEXPRESS\", \"coffee\"),",
+                "    dbo_dim_torrefacoes = Fonte{[Schema=\"dbo\",Item=\"dim_torrefacoes\"]}[Data]",
+                "in",
+                "    dbo_dim_torrefacoes"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fato_extracoes",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          }
+        ],
+        "columns": [
+          {
+            "name": "id_estracao_pk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d119fbf3-fd48-4e9f-b9eb-e37f4472a18d",
+            "sourceColumn": "id_estracao_pk",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "id_moedor_fk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6162eef3-fa07-4e29-87e4-19b38d336f4d",
+            "sourceColumn": "id_moedor_fk",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "id_metodo_fk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3eef484c-c9c4-4b32-8a4d-73c219277fdb",
+            "sourceColumn": "id_metodo_fk",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "id_cafe_fk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3eecc3d5-9eaf-4161-b156-4bd4f6fc3008",
+            "sourceColumn": "id_cafe_fk",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "vl_peso_cafe",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "a9aa6d25-2f40-4e5b-b476-67b8b4a41e3b",
+            "sourceColumn": "vl_peso_cafe",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "vl_nota",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b1069834-71cd-406f-a516-c64d75009389",
+            "sourceColumn": "vl_nota",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "vl_pesoagua",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "da5eb48f-4e87-4f01-87ab-b531c99746aa",
+            "sourceColumn": "vl_pesoagua",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "vl_temperatura",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "36d73031-eee6-4540-902d-b9eed2196efe",
+            "sourceColumn": "vl_temperatura",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "vl_regulagem_moedor",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "cd026ab8-4857-4e43-bfbe-505c13c88e96",
+            "sourceColumn": "vl_regulagem_moedor",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ds_sensorial",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a75c358e-f293-43f3-b76e-1d8e58c3fe7a",
+            "sourceColumn": "ds_sensorial",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_corpo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4b27ee54-19f0-41b2-ba3c-669a200e837d",
+            "sourceColumn": "ds_corpo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dt_dia_extracao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "lineageTag": "a5ea3471-be77-45fd-aa85-c21dcc209d99",
+            "sourceColumn": "dt_dia_extracao",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ts_tempo_extracao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Time",
+            "lineageTag": "c1fb5806-4722-44a9-8a08-584a99dd3454",
+            "sourceColumn": "ts_tempo_extracao",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "3ab14518-4bb4-4dc3-b327-8a0dbc954cc3",
+        "partitions": [
+          {
+            "name": "fato_extracoes",
+            "mode": "import",
+            "queryGroup": "fato",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Sql.Database(\"localhost\\SQLEXPRESS\", \"coffee\"),",
+                "    dbo_fato_extracoes = Fonte{[Schema=\"dbo\",Item=\"fato_extracoes\"]}[Data]",
+                "in",
+                "    dbo_fato_extracoes"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_moedores",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "id_equipamento_pk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6ae9cf54-222f-4fe0-b98f-5315ca8c3aef",
+            "sourceColumn": "id_equipamento_pk",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_tipo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d63109da-e465-4b75-9ac5-0e3c63eee37d",
+            "sourceColumn": "ds_tipo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_nome",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "57d81477-d6a2-4982-8e26-75cba2f59e5f",
+            "sourceColumn": "ds_nome",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dt_dia_compra",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "6877a124-c8bb-46ca-ae7b-cc531f03ea3e",
+            "sourceColumn": "dt_dia_compra",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "bbb5bae6-b433-4aa2-8513-5667f450ca82",
+        "partitions": [
+          {
+            "name": "dim_moedores",
+            "mode": "import",
+            "queryGroup": "dimensoes",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = dim_equipamentos,",
+                "    #\"Linhas Filtradas\" = Table.SelectRows(Fonte, each ([ds_tipo] = \"Moedor\"))",
+                "in",
+                "    #\"Linhas Filtradas\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_metodos",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "id_equipamento_pk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "337d6d66-ee8e-465c-a626-a9772421a84c",
+            "sourceColumn": "id_equipamento_pk",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_tipo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "aa2799be-369b-435b-967a-16fe3c28ee76",
+            "sourceColumn": "ds_tipo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ds_nome",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cb3bff43-0fbb-4662-8e68-a02fe2842895",
+            "sourceColumn": "ds_nome",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dt_dia_compra",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "4b14acd0-e791-460b-83ab-b49e2dccdd55",
+            "sourceColumn": "dt_dia_compra",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "b141b547-542c-4dca-9e30-5f19be28f987",
+        "partitions": [
+          {
+            "name": "dim_metodos",
+            "mode": "import",
+            "queryGroup": "dimensoes",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = dim_equipamentos,",
+                "    #\"Linhas Filtradas\" = Table.SelectRows(Fonte, each ([ds_tipo] = \"Método\"))",
+                "in",
+                "    #\"Linhas Filtradas\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "calendario",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "43016d50abf7429184fae07e4a997c24"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "isDataTypeInferred": true,
+            "isKey": true,
+            "isNameInferred": true,
+            "lineageTag": "2300055c-1842-41fa-98ee-b925dc822de4",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "0b2b556a-d848-4b4e-b779-6b687ce768fb",
+            "sourceColumn": "[Ano]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "MesNro",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "b38f7532-c969-494e-b56f-34b8620cc1e4",
+            "sourceColumn": "[MesNro]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Mes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "cc832a5f-ab56-4ad7-b194-d5b5e05908b5",
+            "sortByColumn": "MesNro",
+            "sourceColumn": "[Mes]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Dia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "e2d84843-b724-4325-83a6-bf73188546c9",
+            "sourceColumn": "[Dia]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "DiaSemanaNro",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "2db5ff19-3980-4537-b681-8d1deeb24654",
+            "sourceColumn": "[DiaSemanaNro]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "DiaSemana",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "27dfa4b3-bb33-4b26-a4a7-1628f4b16243",
+            "sortByColumn": "DiaSemanaNro",
+            "sourceColumn": "[DiaSemana]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "dataCategory": "Time",
+        "lineageTag": "f505e3aa-c47d-4626-8125-c82870ff40ff",
+        "partitions": [
+          {
+            "name": "calendario",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "",
+                "VAR vMenorData = MIN(dim_metodos[dt_dia_compra])",
+                "VAR vMaiorData = MAX(fato_extracoes[dt_dia_extracao])",
+                "",
+                "RETURN ",
+                "ADDCOLUMNS(",
+                "    CALENDAR( vMenorData, vMaiorData ),",
+                "    \"Ano\", YEAR([Date]),",
+                "    \"MesNro\", MONTH([Date]),",
+                "    \"Mes\", FORMAT([Date], \"Mmmm\"),",
+                "    \"Dia\", DAY([Date]),",
+                "        \"DiaSemana\", SWITCH(",
+                "        WEEKDAY([Date]),",
+                "        1,\"Domingo\",",
+                "        2,\"Segunda\",",
+                "        3,\"Terça\",",
+                "        4,\"Quarta\",",
+                "        5,\"Quinta\",",
+                "        6,\"Sexta\",",
+                "        7,\"Sábado\"),",
+                "    \"DiaSemanaNro\", WEEKDAY([Date])",
+                "",
+                ")"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

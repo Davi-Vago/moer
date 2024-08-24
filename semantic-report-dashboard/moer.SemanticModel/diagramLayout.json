@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 276.0607416898136,
+            "y": 677.963992742317
+          },
+          "nodeIndex": "dim_cafes",
+          "nodeLineageTag": "5c346dc4-5634-4468-be0e-d42df46eecc5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 395.90509242884235
+          },
+          "nodeIndex": "dim_torrefacoes",
+          "nodeLineageTag": "af4d5b70-09de-4f76-ae3e-2080b2eec633",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 586.36163941535983,
+            "y": 390.32499263243534
+          },
+          "nodeIndex": "fato_extracoes",
+          "nodeLineageTag": "3ab14518-4bb4-4dc3-b327-8a0dbc954cc3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 378.18764577762954,
+            "y": 109.78548439187372
+          },
+          "nodeIndex": "dim_metodos",
+          "nodeLineageTag": "b141b547-542c-4dca-9e30-5f19be28f987",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 861.54692091997117,
+            "y": 144.7850766637184
+          },
+          "nodeIndex": "dim_moedores",
+          "nodeLineageTag": "bbb5bae6-b433-4aa2-8513-5667f450ca82",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 863.93966311590793,
+            "y": 827.53568301863652
+          },
+          "nodeIndex": "calendario",
+          "nodeLineageTag": "f505e3aa-c47d-4626-8125-c82870ff40ff",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 70.955543900968777,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}
