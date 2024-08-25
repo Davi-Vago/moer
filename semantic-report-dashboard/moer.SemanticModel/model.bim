@@ -51,10 +51,10 @@
           }
         ],
         "expression": [
-          "let",
-          "    Fonte = Sql.Database(\"localhost\\SQLEXPRESS\", \"coffee\"),",
-          "    dbo_dim_equipamentos = Fonte{[Schema=\"dbo\",Item=\"dim_equipamentos\"]}[Data]",
-          "in",
+          "let\r",
+          "    Fonte = Sql.Database(\"localhost\\SQLEXPRESS\", \"coffee\"),\r",
+          "    dbo_dim_equipamentos = Fonte{[Schema=\"dbo\",Item=\"dim_equipamentos\"]}[Data]\r",
+          "in\r",
           "    dbo_dim_equipamentos"
         ],
         "kind": "m",
@@ -100,13 +100,6 @@
         "toTable": "dim_torrefacoes"
       },
       {
-        "name": "ea0fb745-35e8-5d55-6842-7540bcfcb443",
-        "fromColumn": "id_cafe_pk",
-        "fromTable": "dim_cafes",
-        "toColumn": "id_cafe_fk",
-        "toTable": "fato_extracoes"
-      },
-      {
         "name": "185ac9dd-2f3f-5cdb-3791-73803c3dffa3",
         "fromColumn": "id_metodo_fk",
         "fromTable": "fato_extracoes",
@@ -126,6 +119,13 @@
         "fromTable": "fato_extracoes",
         "toColumn": "Date",
         "toTable": "calendario"
+      },
+      {
+        "name": "e8bbcc65-30a9-0694-af8b-c29d127069f9",
+        "fromColumn": "id_cafe_fk",
+        "fromTable": "fato_extracoes",
+        "toColumn": "id_cafe_pk",
+        "toTable": "dim_cafes"
       }
     ],
     "sourceQueryCulture": "pt-BR",
@@ -406,20 +406,6 @@
         ],
         "columns": [
           {
-            "name": "id_estracao_pk",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "d119fbf3-fd48-4e9f-b9eb-e37f4472a18d",
-            "sourceColumn": "id_estracao_pk",
-            "summarizeBy": "sum"
-          },
-          {
             "name": "id_moedor_fk",
             "annotations": [
               {
@@ -601,6 +587,20 @@
             "lineageTag": "c1fb5806-4722-44a9-8a08-584a99dd3454",
             "sourceColumn": "ts_tempo_extracao",
             "summarizeBy": "none"
+          },
+          {
+            "name": "id_extracao_pk",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "cb107f1c-a75f-4adc-a60e-9437c0df0f6c",
+            "sourceColumn": "id_extracao_pk",
+            "summarizeBy": "sum"
           }
         ],
         "lineageTag": "3ab14518-4bb4-4dc3-b327-8a0dbc954cc3",
