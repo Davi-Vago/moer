@@ -25,7 +25,44 @@
       "filters": "[]",
       "height": 720.00,
       "name": "0bbd6110daca9beb2069",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"06aa5ce0a85b06a0dab6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":34.02985074626866,\"y\":30.44776119402985,\"z\":0,\"width\":783.5820895522388,\"height\":99.40298507462687,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"dim_moedores.ds_nome\",\"active\":true}],\"Values\":[{\"queryRef\":\"Sum(fato_extracoes.vl_peso_cafe)\"},{\"queryRef\":\"Sum(fato_extracoes.id_extracao_pk)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_moedores\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fato_extracoes\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ds_nome\"},\"Name\":\"dim_moedores.ds_nome\",\"NativeReferenceName\":\"ds_nome\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"vl_peso_cafe\"}},\"Function\":0},\"Name\":\"Sum(fato_extracoes.vl_peso_cafe)\",\"NativeReferenceName\":\"Soma de vl_peso_cafe\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"id_extracao_pk\"}},\"Function\":2},\"Name\":\"Sum(fato_extracoes.id_extracao_pk)\",\"NativeReferenceName\":\"Contagem de id_extracao_pk\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 99.40,
+          "width": 783.58,
+          "x": 34.03,
+          "y": 30.45,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"4e7f289770007c70acbc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":34,\"y\":320,\"width\":280,\"height\":280,\"z\":1,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"map\",\"projections\":{\"Size\":[{\"queryRef\":\"Sum(fato_extracoes.vl_peso_cafe)\"}],\"Category\":[{\"queryRef\":\"dim_cafes.ds_municipio\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fato_extracoes\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_cafes\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"vl_peso_cafe\"}},\"Function\":0},\"Name\":\"Sum(fato_extracoes.vl_peso_cafe)\",\"NativeReferenceName\":\"Soma de vl_peso_cafe\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ds_municipio\"},\"Name\":\"dim_cafes.ds_municipio\",\"NativeReferenceName\":\"ds_municipio\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 280.00,
+          "width": 280.00,
+          "x": 34.00,
+          "y": 320.00,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"98e58040518150b0a07e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":34.02985074626866,\"y\":129.8507462686567,\"z\":2,\"width\":471.04477611940297,\"height\":99.40298507462687,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(fato_extracoes.vl_peso_cafe)\"},{\"queryRef\":\"Sum(fato_extracoes.id_extracao_pk)\"}],\"Rows\":[{\"queryRef\":\"dim_metodos.ds_nome\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fato_extracoes\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_metodos\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"vl_peso_cafe\"}},\"Function\":0},\"Name\":\"Sum(fato_extracoes.vl_peso_cafe)\",\"NativeReferenceName\":\"Soma de vl_peso_cafe\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"id_extracao_pk\"}},\"Function\":2},\"Name\":\"Sum(fato_extracoes.id_extracao_pk)\",\"NativeReferenceName\":\"Contagem de id_extracao_pk\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ds_nome\"},\"Name\":\"dim_metodos.ds_nome\",\"NativeReferenceName\":\"ds_nome\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 99.40,
+          "width": 471.04,
+          "x": 34.03,
+          "y": 129.85,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"f8ee74bf1218e6cd5dac\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640.2985074626865,\"y\":38.507462686567166,\"z\":3,\"width\":471.04477611940297,\"height\":99.40298507462687,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(fato_extracoes.vl_peso_cafe)\"},{\"queryRef\":\"Sum(fato_extracoes.id_extracao_pk)\"}],\"Rows\":[{\"queryRef\":\"dim_torrefacoes.ds_nome_torrefacao\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fato_extracoes\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dim_torrefacoes\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"vl_peso_cafe\"}},\"Function\":0},\"Name\":\"Sum(fato_extracoes.vl_peso_cafe)\",\"NativeReferenceName\":\"Soma de vl_peso_cafe\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"id_extracao_pk\"}},\"Function\":2},\"Name\":\"Sum(fato_extracoes.id_extracao_pk)\",\"NativeReferenceName\":\"Contagem de id_extracao_pk\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"ds_nome_torrefacao\"},\"Name\":\"dim_torrefacoes.ds_nome_torrefacao\",\"NativeReferenceName\":\"ds_nome_torrefacao\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 99.40,
+          "width": 471.04,
+          "x": 640.30,
+          "y": 38.51,
+          "z": 3.00
+        }
+      ],
       "width": 1280.00
     }
   ]
