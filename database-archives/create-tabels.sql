@@ -39,6 +39,13 @@ CREATE TABLE dim_equipamentos
     dt_dia_compra DATE
 );
 
+/* INSERT NA FATO 
+
+  INSERT INTO dim_equipamentos VALUES 
+  (ds_tipo, ds_nome, dt_dia_compra)
+
+*/
+
 CREATE TABLE dim_cafes
 
 (
